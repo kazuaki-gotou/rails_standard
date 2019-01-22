@@ -1,0 +1,20 @@
+<h1>New My Blog</h1>
+
+<%= form_with(model: @my_blog, local: true) do |form| %>
+  <% if @my_blog.errors.any? %>
+    <div id="error_explanation">
+      <h2>だめだぞ</h2>
+      <ul>
+
+      <% @my_blog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+ <% end %>
+
+<%= render 'form', my_blog: @my_blog %>
+
+<%= link_to 'Back', my_blogs_path %>
+
+<% end %>
