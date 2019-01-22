@@ -3,8 +3,14 @@ class ContactsController < ApplicationController
     @contact = Contact.new
   end
   def create
-    Contact.create(contact_params)
-    redirect_to new_contact_path
+    # Contact.create(contact_params)
+    # redirect_to new_contact_path
+    @contact = Contact.new(contact_params)
+      if @contact.save
+        redirect_to new_contact_path
+      else
+        render "new"
+      end
   end
 
   private
